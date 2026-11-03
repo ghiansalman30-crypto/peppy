@@ -1,0 +1,12 @@
+{
+  "name": "peppy",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "api": "node --env-file-if-exists=.env --import tsx server/api.ts"
+  },
+  "dependencies": {
+    "ethers": "^6.17.0",
+    "tsx": "^4.23.13"
+  }
+}

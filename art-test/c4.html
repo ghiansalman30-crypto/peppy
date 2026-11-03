@@ -1,0 +1,52 @@
+<!doctype html><meta charset="utf-8">
+<style>body{margin:0;background:#f4e9d4;display:grid;grid-template-columns:repeat(2,800px);width:1600px}svg{width:800px;height:760px;display:block}</style>
+<body><script>
+const O='#141009';let n=0;
+/* the shared face, drawn looking left; origin sits at the mouth corner */
+const face=(x,y,s,c,lip)=>`<g transform="translate(${x} ${y}) scale(${s})">
+<path d="M-214-92C-208-126-170-142-136-136C-106-130-88-110-88-86C-88-60-120-42-160-44C-192-46-214-64-214-92Z" fill="${c}" stroke="${O}" stroke-width="5"/>
+<path d="M-202-88C-188-104-128-106-100-88C-110-64-184-58-202-88Z" fill="#f7d3b4" stroke="${O}" stroke-width="4.5"/>
+<circle cx="-166" cy="-86" r="15" fill="${O}"/><circle cx="-171" cy="-91" r="4.5" fill="#fff"/>
+<path d="M-206-88C-186-108-124-110-96-88" stroke="${O}" stroke-width="8" fill="none" stroke-linecap="round"/>
+<path d="M-196-38C-172-26-132-26-106-38" stroke="${O}" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".7"/>
+<path d="M-40-104C-20-122 10-122 28-106" stroke="${O}" stroke-width="7" fill="none" stroke-linecap="round"/>
+<path d="M-32-84C-14-74 8-76 22-86" stroke="${O}" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".7"/>
+<path d="M-214-12C-236-6-252 10-250 30C-248 46-232 56-206 56C-142 58-68 48-10 6C0-2-12-18-26-12C-82 14-152 6-214-12Z" fill="${lip}" stroke="${O}" stroke-width="5" stroke-linejoin="round"/>
+<path d="M-242 60C-232 92-188 106-136 102C-76 98-26 70 0 22C-18 32-70 56-128 62C-172 66-212 66-242 60Z" fill="${lip}" stroke="${O}" stroke-width="5" stroke-linejoin="round"/>
+<path d="M-248 42C-196 64-88 56-4 4" stroke="${O}" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+<path d="M-212 6C-170 18-122 18-80 8" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" opacity=".55"/>
+<path d="M-198 82C-164 90-120 86-82 72" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" opacity=".5"/>
+<path d="M-4 4C8-6 14-18 12-30" stroke="${O}" stroke-width="5" fill="none" stroke-linecap="round"/>
+</g>`;
+const blob=(p,c,d)=>{const id=++n;return `<defs><clipPath id="c${id}"><path d="${p}"/></clipPath></defs><path d="${p}" fill="${d}"/><g clip-path="url(#c${id})"><path d="${p}" fill="${c}" transform="translate(-12 -15)"/></g><path d="${p}" fill="none" stroke="${O}" stroke-width="5" stroke-linejoin="round"/>`};
+const G='#8cf000',D='#58b800',L='#74d90a';
+const leg=(x,c,d)=>blob(`M${x} 560C${x-6} 620 ${x-8} 660 ${x-10} 690L${x+70} 690C${x+66} 650 ${x+66} 610 ${x+64} 560Z`,c,d)+`<path d="M${x-14} 690L${x+74} 690C${x+80} 716 ${x+76} 728 ${x+66} 728L${x-6} 728C${x-18} 728 ${x-20} 712 ${x-14} 690Z" fill="#3a2a1c" stroke="${O}" stroke-width="5"/>`;
+const horse=`<svg viewBox="0 0 1000 760">
+<ellipse cx="540" cy="732" rx="360" ry="16" fill="${O}" opacity=".13"/>
+<!-- tail -->
+${blob('M820 360C900 340 950 400 946 500C944 560 924 610 890 640C886 570 860 520 820 470Z','#f5a300','#c97f00')}
+${leg(330,D,'#4a9c00')}${leg(760,D,'#4a9c00')}
+<!-- body and neck -->
+${blob('M300 330C316 210 300 150 330 96C360 44 450 40 520 76C570 104 580 170 570 262C640 240 730 240 790 268C860 300 880 400 856 500C830 590 720 620 600 620C480 620 350 610 300 540C260 480 288 410 300 330Z',G,D)}
+${leg(430,G,D)}${leg(660,G,D)}
+<!-- mane -->
+${blob('M470 40C520 16 590 40 610 100C624 150 610 230 590 280C580 230 560 180 520 130C500 100 480 70 470 40Z','#f5a300','#c97f00')}
+<!-- ears -->
+${blob('M380 60C376 22 396-4 430 -8C436 26 428 54 410 72Z',G,D)}
+<path d="M640 300C720 286 790 306 826 360" stroke="#fff" stroke-width="18" stroke-linecap="round" fill="none" opacity=".7"/>
+<circle cx="838" cy="402" r="10" fill="#fff" opacity=".7"/>
+${face(420,260,.9,G,L)}
+</svg>`;
+const pig=`<svg viewBox="0 0 1000 760">
+<ellipse cx="520" cy="716" rx="300" ry="16" fill="${O}" opacity=".13"/>
+${blob('M760 330C850 340 930 420 960 540C900 530 840 510 790 470Z','#7a8ba8','#56657f')}
+<path d="M440 620L424 700M560 620L580 700" stroke="#d8772a" stroke-width="22" stroke-linecap="round"/>
+<path d="M394 704L470 704M552 704L628 704" stroke="#d8772a" stroke-width="20" stroke-linecap="round"/>
+${blob('M300 300C300 170 380 90 480 90C590 90 640 180 640 280C720 300 800 380 800 480C800 590 690 650 540 650C400 650 300 590 300 470Z','#a8b6cc','#7a8ba8')}
+${blob('M430 330C520 360 650 420 700 520C620 580 500 560 440 480C410 430 410 370 430 330Z','#8c9cb8','#65748f')}
+<path d="M360 300C430 340 560 340 640 290C640 340 620 400 590 420C510 450 410 420 340 380Z" fill="#7be0a8" opacity=".75"/>
+<path d="M420 120C500 110 580 170 598 240" stroke="#fff" stroke-width="16" stroke-linecap="round" fill="none" opacity=".7"/>
+${face(440,240,.8,'#a8b6cc','#f0a33a')}
+</svg>`;
+document.body.innerHTML=horse+pig;
+</script>

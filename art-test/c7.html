@@ -1,0 +1,49 @@
+<!doctype html><meta charset="utf-8">
+<style>body{margin:0;background:#f4e9d4;display:grid;grid-template-columns:repeat(2,800px);width:1600px}svg{width:800px;height:800px;display:block}</style>
+<body><script>
+const O='#141009';let n=0;
+const blob=(p,c,d,w=4.5,dx=-12,dy=-15)=>{const id=++n;return `<defs><clipPath id="k${id}"><path d="${p}"/></clipPath></defs><path d="${p}" fill="${d}"/><g clip-path="url(#k${id})"><path d="${p}" fill="${c}" transform="translate(${dx} ${dy})"/></g><path d="${p}" fill="none" stroke="${O}" stroke-width="${w}" stroke-linejoin="round"/>`};
+const gloss=(d,w=14,o=.68)=>`<path d="${d}" stroke="#fff" stroke-width="${w}" stroke-linecap="round" fill="none" opacity="${o}"/>`;
+const stub=(x,y,c,d,h)=>blob(`M${x} ${y}C${x-34} ${y+6} ${x-48} ${y+44} ${x-40} ${y+74}C${x-30} ${y+100} ${x+70} ${y+100} ${x+80} ${y+74}C${x+88} ${y+44} ${x+74} ${y+6} ${x+40} ${y}Z`,c,d)+blob(`M${x-42} ${y+66}C${x-10} ${y+86} ${x+50} ${y+86} ${x+82} ${y+66}C${x+92} ${y+94} ${x+84} ${y+116} ${x+60} ${y+120}C${x+20} ${y+126} ${x-20} ${y+124} ${x-34} ${y+118}C${x-52} ${y+108} ${x-52} ${y+88} ${x-42} ${y+66}Z`,h,'#1f160e');
+const tuft=(p,hair,hairD)=>blob(p,hair,hairD,4.5,-8,-10);
+const horse=(c,d,lip,lipD,hair,hairD,h)=>`<svg viewBox="130 70 860 860">
+<ellipse cx="560" cy="896" rx="330" ry="17" fill="${O}" opacity=".13"/>
+<!-- tail: a fat curl with a tip, as the snake's rattle sits -->
+${blob('M770 700C840 700 900 660 906 590C910 556 950 548 968 576C1000 640 960 760 860 800C810 820 770 800 750 770Z',hair,hairD)}
+${gloss('M930 606C934 650 910 700 868 738',11,.55)}
+<!-- far stubs -->
+${stub(310,756,d,d,h)}
+<!-- rump, a big soft balloon -->
+${blob('M520 660C560 540 760 520 830 620C890 710 840 830 720 860C610 884 490 800 520 660Z',c,d)}
+${gloss('M620 590C690 566 770 590 806 650',15)}
+<circle cx="818" cy="682" r="9" fill="#fff" opacity=".68"/>
+<!-- head, neck and chest as one S -->
+${blob('M236 396C222 288 300 182 424 166C556 150 654 246 642 362C632 446 556 474 516 522C556 552 608 612 600 690C590 790 480 850 390 826C300 804 272 720 306 646C330 596 388 566 398 516C348 520 254 500 236 396Z',c,d,5)}
+${gloss('M452 196C534 204 596 262 606 332',16)}
+<circle cx="604" cy="372" r="10" fill="#fff" opacity=".68"/>
+${gloss('M352 640C330 680 326 730 352 768',12,.55)}
+<!-- near stubs -->
+${stub(372,756,c,d,h)}${stub(640,762,c,d,h)}
+<!-- mane: soft lobes down the back of the neck -->
+${tuft('M500 150C548 118 610 134 628 186C650 178 680 196 682 232C706 240 716 276 698 304C720 322 720 360 692 376C702 410 678 444 640 442C640 400 636 350 620 300C600 240 556 190 500 150Z',hair,hairD)}
+<!-- ears -->
+${blob('M438 170C426 124 444 88 482 76C500 112 498 150 474 180Z',c,d)}
+${blob('M372 176C352 136 364 96 402 76C426 112 424 150 404 182Z',c,d)}
+<!-- the face, scaled to sit small on the head, as on the snake -->
+<g transform="translate(106 98) scale(.74)">
+<g fill="none" stroke="${O}" stroke-width="5.5" stroke-linecap="round">
+<path d="M284 222C326 192 384 188 444 214"/><path d="M296 236C336 210 390 206 446 232"/>
+<path d="M196 256C214 236 238 226 262 226"/></g>
+<path d="M188 300C204 270 236 256 268 258C276 276 276 300 262 316C236 330 204 324 188 300Z" fill="#fff" stroke="${O}" stroke-width="6"/>
+<ellipse cx="226" cy="290" rx="22" ry="27" fill="#0c0a08"/><circle cx="216" cy="279" r="6" fill="#fff"/><circle cx="232" cy="282" r="7" fill="#fff"/><circle cx="218" cy="298" r="4" fill="#fff"/>
+<path d="M268 268C286 240 334 226 382 232C424 238 452 260 464 294C434 318 370 330 318 322C288 318 268 298 268 268Z" fill="#fff" stroke="${O}" stroke-width="6"/>
+<circle cx="340" cy="278" r="37" fill="#0c0a08"/><circle cx="324" cy="260" r="8" fill="#fff"/><circle cx="348" cy="264" r="10" fill="#fff"/><circle cx="326" cy="290" r="5.5" fill="#fff"/>
+<path d="M266 262C290 232 336 218 386 224C426 230 456 254 470 292" fill="none" stroke="${O}" stroke-width="8" stroke-linecap="round"/>
+<path d="M186 296C200 268 234 250 268 254" fill="none" stroke="${O}" stroke-width="8" stroke-linecap="round"/>
+<g fill="none" stroke="${O}" stroke-width="5.5" stroke-linecap="round"><path d="M284 340C330 354 400 348 454 318"/><path d="M196 332C214 342 236 344 256 338"/></g>
+${blob('M148 402C164 366 214 358 270 368C332 380 392 382 452 360C474 354 484 380 466 400C444 432 372 464 280 470C208 474 146 448 148 402Z',lip,lipD,6,-6,-8)}
+<path d="M164 412C226 402 300 424 372 420C412 416 442 402 462 384" fill="none" stroke="${O}" stroke-width="5.5" stroke-linecap="round"/>
+<path d="M200 386C230 382 268 386 300 392" stroke="#fff" stroke-width="8" stroke-linecap="round" fill="none" opacity=".45"/>
+</g></svg>`;
+document.body.innerHTML=horse('#8cf000','#58b800','#e8613f','#b8432a','#f5a300','#c97f00','#3a2a1c')+horse('#74a85c','#527f42','#bd6c43','#8f4c2c','#bd6c43','#8f4c2c','#3a2a1c');
+</script>

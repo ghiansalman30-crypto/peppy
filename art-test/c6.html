@@ -1,0 +1,44 @@
+<!doctype html><meta charset="utf-8">
+<style>body{margin:0;background:#f4e9d4;display:grid;grid-template-columns:repeat(2,800px);width:1600px}svg{width:800px;height:800px;display:block}</style>
+<body><script>
+const O='#141009';let n=0;
+const blob=(p,c,d,w=4.5,dx=-11,dy=-14)=>{const id=++n;return `<defs><clipPath id="k${id}"><path d="${p}"/></clipPath></defs><path d="${p}" fill="${d}"/><g clip-path="url(#k${id})"><path d="${p}" fill="${c}" transform="translate(${dx} ${dy})"/></g><path d="${p}" fill="none" stroke="${O}" stroke-width="${w}" stroke-linejoin="round"/>`};
+const leg=(x,y,c,d,h)=>blob(`M${x} ${y}C${x-8} ${y+60} ${x-6} 800 ${x-10} 846C${x-12} 868 ${x+70} 868 ${x+68} 846C${x+64} 800 ${x+70} ${y+60} ${x+66} ${y}Z`,c,d)+`<path d="M${x-13} 838C${x+10} 850 ${x+50} 850 ${x+71} 838L${x+76} 878C${x+50} 892 ${x+6} 892 ${x-18} 878Z" fill="${h}" stroke="${O}" stroke-width="4.5" stroke-linejoin="round"/>`;
+const horse=(c,d,lip,lipD,hair,hairD,hoof)=>`<svg viewBox="60 60 960 900">
+<ellipse cx="620" cy="896" rx="340" ry="17" fill="${O}" opacity=".13"/>
+${blob('M880 560C950 540 1000 610 996 700C994 760 970 810 934 840C932 770 900 710 860 650Z',hair,hairD)}
+${leg(470,700,d,lipD==='x'?d:d,hoof)}${leg(790,690,d,d,hoof)}
+${blob('M366 470C352 400 380 340 440 318C505 296 566 330 578 400C584 440 600 470 650 478C745 492 856 500 888 590C912 668 866 732 782 750C650 776 470 776 392 724C332 684 376 560 366 470Z',c,d)}
+${leg(395,716,c,d,hoof)}${leg(690,730,c,d,hoof)}
+${blob('M470 170C550 150 620 220 628 310C632 380 610 440 590 486C570 430 540 380 500 340C460 300 440 220 470 170Z',hair,hairD)}
+<path d="M640 512C720 512 800 540 846 590" stroke="#fff" stroke-width="16" stroke-linecap="round" fill="none" opacity=".62"/><circle cx="860" cy="622" r="9" fill="#fff" opacity=".62"/>
+<path d="M404 470C400 420 412 380 444 358" stroke="#fff" stroke-width="12" stroke-linecap="round" fill="none" opacity=".5"/>
+<!-- ears -->
+${blob('M418 164C410 116 432 74 476 64C492 108 482 156 454 186Z',c,d)}
+${blob('M340 158C326 118 340 78 380 60C402 98 400 140 378 170Z',c,d)}
+<!-- head, turned three quarters to the left -->
+${blob('M214 302C218 208 300 148 392 152C486 158 548 226 538 312C530 378 482 424 424 444C350 472 232 486 170 444C126 412 150 340 214 302Z',c,d,5)}
+<path d="M300 176C350 160 420 170 470 212" stroke="#fff" stroke-width="13" stroke-linecap="round" fill="none" opacity=".62"/>
+<!-- lid layers -->
+<g fill="none" stroke="${O}" stroke-width="4.5" stroke-linecap="round">
+<path d="M284 222C326 192 384 188 444 214"/><path d="M296 236C336 210 390 206 446 232"/>
+<path d="M196 256C214 236 238 226 262 226"/><path d="M204 268C220 250 240 242 262 242"/></g>
+<!-- far eye, foreshortened -->
+<path d="M188 300C204 270 236 256 268 258C276 276 276 300 262 316C236 330 204 324 188 300Z" fill="#fff" stroke="${O}" stroke-width="5"/>
+<ellipse cx="226" cy="290" rx="22" ry="27" fill="#0c0a08"/><circle cx="216" cy="279" r="6" fill="#fff"/><circle cx="232" cy="282" r="7" fill="#fff"/><circle cx="218" cy="298" r="4" fill="#fff"/>
+<!-- near eye -->
+<path d="M268 268C286 240 334 226 382 232C424 238 452 260 464 294C434 318 370 330 318 322C288 318 268 298 268 268Z" fill="#fff" stroke="${O}" stroke-width="5"/>
+<circle cx="340" cy="278" r="37" fill="#0c0a08"/><circle cx="324" cy="260" r="8" fill="#fff"/><circle cx="348" cy="264" r="10" fill="#fff"/><circle cx="326" cy="290" r="5.5" fill="#fff"/>
+<path d="M266 262C290 232 336 218 386 224C426 230 456 254 470 292" fill="none" stroke="${O}" stroke-width="6.5" stroke-linecap="round"/>
+<path d="M186 296C200 268 234 250 268 254" fill="none" stroke="${O}" stroke-width="6.5" stroke-linecap="round"/>
+<!-- bags and nose lines -->
+<g fill="none" stroke="${O}" stroke-width="4.5" stroke-linecap="round">
+<path d="M284 340C330 354 400 348 454 318"/><path d="M196 332C214 342 236 344 256 338"/>
+<path d="M244 366C258 362 268 356 276 348"/></g>
+<!-- lips along the muzzle -->
+${blob('M148 402C164 366 214 358 270 368C332 380 392 382 452 360C474 354 484 380 466 400C444 432 372 464 280 470C208 474 146 448 148 402Z',lip,lipD,5,-6,-8)}
+<path d="M164 412C226 402 300 424 372 420C412 416 442 402 462 384" fill="none" stroke="${O}" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M200 386C230 382 268 386 300 392" stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none" opacity=".4"/>
+</svg>`;
+document.body.innerHTML=horse('#74a85c','#527f42','#bd6c43','#8f4c2c','#bd6c43','#8f4c2c','#3a2a1c')+horse('#8cf000','#58b800','#e8613f','#b8432a','#f5a300','#c97f00','#3a2a1c');
+</script>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Peppy Siege | no reins, all aim</title>
+<link rel="icon" href="assets/peppy.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titan+One&family=Nunito:wght@600;800&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body class="game">
+<header class="bar-g"><a class="logo" href="/">PEPPY</a><h1>PEPPY SIEGE</h1><span id="wind" class="pill">wind 0</span></header>
+<div id="menu" class="menu-s">
+  <div class="mbox">
+    <small>peppyrh.fun presents: no reins, all aim</small>
+    <h2>PEPPY SIEGE</h2>
+    <p>Turn-based artillery. 12 Peppys, 12 ridiculous weapons, six arenas.</p>
+    <h4>PICK YOUR PEPPY</h4><div class="picks" id="picks"></div>
+    <h4>PICK AN ARENA</h4><div class="chips" id="arenas"></div>
+    <div class="row"><button id="bots" class="pill hay big2" type="button">▶ VS BOTS</button><button class="pill off big2" type="button" disabled>PLAY ONLINE · soon</button></div>
+    <details class="how"><summary>HOW TO PLAY</summary><p>Set the angle and power, pick a weapon, fire. Wind changes every turn. Knock your rival to zero before they do it to you. Arrow keys aim, space fires.</p></details>
+  </div>
+</div>
+<main class="arena">
+  <div class="hp"><div><b id="youN">YOU</b><i><u id="youHp"></u></i></div><strong id="turn">your turn</strong><div class="r"><b id="cpuN">CPU</b><i><u id="cpuHp"></u></i></div></div>
+  <canvas id="c" width="960" height="540" aria-label="Artillery battlefield"></canvas>
+  <div class="ctl">
+    <label>Angle <output id="aV">45°</output><input id="a" type="range" min="5" max="175" value="45"></label>
+    <label>Power <output id="pV">60</output><input id="p" type="range" min="10" max="100" value="60"></label>
+    <div class="weap" id="weap"></div>
+    <button id="fire" class="pill hay" type="button">FIRE</button>
+    <button id="again" class="pill line" type="button" hidden>rematch</button>
+    <button id="toMenu" class="pill line" type="button">menu</button>
+  </div>
+  <p class="foot">Drag the sliders, or use the arrow keys and space. You versus the machine. No wallet, no prizes.</p>
+</main>
+<script src="js/peppy.js"></script>
+<script src="js/data.js"></script>
+<script src="js/siege.js"></script>
+</body>
+</html>

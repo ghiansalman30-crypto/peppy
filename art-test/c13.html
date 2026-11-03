@@ -1,0 +1,59 @@
+<!doctype html><meta charset="utf-8">
+<style>body{margin:0;background:#f4e9d4;width:1200px}svg{width:1200px;height:1240px;display:block}</style>
+<body><script>
+const O='#141009',C='#6f9f58',D='#4f7d3f',LIP='#b86a42',LD='#8c4b2b',H='#3a2a1c';let n=0;
+const blob=(p,c,d,w=5,dx=-12,dy=-15)=>{const id=++n;return `<defs><clipPath id="k${id}"><path d="${p}"/></clipPath></defs><path d="${p}" fill="${d}"/><g clip-path="url(#k${id})"><path d="${p}" fill="${c}" transform="translate(${dx} ${dy})"/></g><path d="${p}" fill="none" stroke="${O}" stroke-width="${w}" stroke-linejoin="round"/>`};
+const gloss=(d,w=15,o=.6)=>`<path d="${d}" stroke="#fff" stroke-width="${w}" stroke-linecap="round" fill="none" opacity="${o}"/>`;
+const leg=(p,c,d,hx,hy)=>blob(p,c,d)+blob(`M${hx-46} ${hy}C${hx-20} ${hy+12} ${hx+30} ${hy+12} ${hx+50} ${hy}L${hx+64} ${hy+62}C${hx+30} ${hy+72} ${hx-30} ${hy+72} ${hx-56} ${hy+62}Z`,H,'#1f160e');
+const FARH='M300 610C270 690 280 750 262 800C252 840 262 900 258 960L330 960C330 890 340 840 352 800C372 730 396 680 410 620Z';
+const FARF='M640 620C640 700 650 760 636 820C630 860 640 910 636 966L708 966C708 900 712 860 722 820C738 750 736 690 730 620Z';
+const NEARH='M170 560C130 650 150 740 132 800C122 846 142 910 134 972L208 972C210 900 222 850 236 806C258 730 300 690 330 620Z';
+const NEARF='M744 640C730 700 760 770 744 830C736 870 752 920 744 978L820 978C822 910 828 868 838 830C854 760 836 700 800 640Z';
+const BODY='M770 420C690 408 590 440 500 448C420 464 340 470 270 436C200 404 130 450 116 530C104 600 140 650 210 660C320 676 480 660 610 664C700 668 790 650 840 590C890 530 860 440 770 420Z';
+const svg=`<svg viewBox="0 0 1200 1240">
+<ellipse cx="500" cy="1212" rx="470" ry="18" fill="${O}" opacity=".13"/>
+<g transform="translate(0 170)">
+${blob('M170 450C90 440 40 500 44 600C48 690 30 780 64 860C84 910 120 930 150 920C126 860 130 780 150 700C170 620 190 540 230 480Z','#20160f','#120c08')}
+${gloss('M92 520C80 600 76 700 96 820',11,.25)}
+${leg(FARH,'#3f2818','#2c1b10',296,950)}${leg(FARF,'#3f2818','#2c1b10',672,956)}
+${leg(NEARH,'#5e3d27','#3f2818',170,962)}${leg(NEARF,'#5e3d27','#3f2818',784,968)}
+${blob(BODY,'#5e3d27','#3f2818')}
+${gloss('M300 500C370 520 470 514 560 482',15,.4)}<circle cx="178" cy="516" r="10" fill="#fff" opacity=".4"/>
+</g>
+<!-- bow in the far hand -->
+<path d="M1062 240C1120 340 1120 520 1062 620" fill="none" stroke="#7a4a22" stroke-width="16" stroke-linecap="round"/><path d="M1062 240C1120 340 1120 520 1062 620" fill="none" stroke="${O}" stroke-width="3"/>
+<path d="M1062 240L1062 620" stroke="${O}" stroke-width="3"/>
+<!-- far arm, reaching to the bow -->
+${blob('M880 400C940 380 1010 400 1070 420C1090 430 1090 464 1066 468C1000 470 930 470 870 470Z',D,'#3f6a31')}
+<!-- torso -->
+${blob('M700 720C686 650 668 580 640 500C622 440 650 396 706 382C760 368 820 368 870 384C918 400 934 446 914 500C892 570 884 650 880 730C820 770 750 768 700 720Z',C,D,5)}
+<g fill="none" stroke="${D}" stroke-width="6" stroke-linecap="round"><path d="M700 470C730 496 770 496 786 470"/><path d="M800 470C820 496 860 496 884 466"/><path d="M790 480L788 690"/><path d="M730 560C760 572 830 572 862 556"/><path d="M736 620C764 632 826 632 858 618"/></g>
+${gloss('M672 480C680 530 694 580 704 620',11,.5)}
+<!-- strap -->
+<path d="M672 420L876 640" stroke="#7a4a22" stroke-width="22" stroke-linecap="butt"/><path d="M664 428L868 648M680 412L884 632" stroke="${O}" stroke-width="3"/>
+<!-- near arm -->
+${blob('M668 396C622 404 600 444 596 500C592 550 584 590 570 630C562 660 600 682 622 656C644 620 664 570 672 520C680 480 692 440 700 420Z',C,D,5)}
+<!-- neck -->
+${blob('M730 330L740 400C770 418 820 416 846 396L850 320Z',C,D,5)}
+<g transform="translate(640 92) scale(.34)">
+<!-- head outline from the reference, closed above and below the crop -->
+${blob('M150 60C230 -40 460 -70 700 -50C860 -66 1040 -40 1120 40C1190 90 1200 150 1188 180C1140 240 1080 280 1030 310C1090 350 1120 420 1116 470C1150 500 1150 530 1110 570C1090 620 1040 680 960 712C760 770 420 760 240 690C120 640 20 540 0 420C-20 330 -10 170 60 90C90 70 120 62 150 60Z',C,D,10,-14,-18)}
+${gloss('M170 110C290 40 470 20 620 30',22,.5)}
+<g fill="none" stroke="${O}" stroke-width="9" stroke-linecap="round">
+<path d="M340 95C460 20 620 -6 770 30"/><path d="M305 135C440 50 610 30 775 65"/>
+<path d="M785 75C880 -2 1050 0 1150 90"/><path d="M782 60C870 -24 1060 -26 1170 70"/></g>
+<path d="M305 135C440 60 600 50 775 70C800 90 800 120 790 150C640 90 480 110 390 165C350 160 300 160 305 135Z" fill="${C}" stroke="${O}" stroke-width="9" stroke-linejoin="round"/>
+<path d="M782 92C900 40 1060 40 1186 150C1120 110 950 100 800 170C790 140 780 120 782 92Z" fill="${C}" stroke="${O}" stroke-width="9" stroke-linejoin="round"/>
+<path d="M390 165C470 100 620 70 720 92C770 104 796 130 800 150C780 210 680 236 560 238C490 240 430 210 390 165Z" fill="#fff" stroke="${O}" stroke-width="10" stroke-linejoin="round"/>
+<path d="M800 150C850 94 960 74 1050 86C1120 96 1168 130 1186 170C1110 216 990 224 880 216C830 210 800 186 800 150Z" fill="#fff" stroke="${O}" stroke-width="10" stroke-linejoin="round"/>
+<circle cx="578" cy="152" r="82" fill="#0a0806"/><circle cx="975" cy="150" r="80" fill="#0a0806"/>
+<circle cx="551" cy="104" r="13" fill="#fff"/><circle cx="600" cy="128" r="16" fill="#fff"/><circle cx="553" cy="148" r="9" fill="#fff"/>
+<circle cx="950" cy="100" r="12" fill="#fff"/><circle cx="998" cy="127" r="15" fill="#fff"/><circle cx="952" cy="146" r="8" fill="#fff"/>
+<g fill="none" stroke="${O}" stroke-width="9" stroke-linecap="round">
+<path d="M390 220C460 270 650 290 790 205"/><path d="M820 296C900 330 1080 320 1162 200"/>
+<path d="M548 350C610 326 660 310 706 286"/><path d="M820 298C850 318 880 332 910 342"/></g>
+${blob('M306 545C310 490 370 462 450 468C600 480 760 540 900 530C980 526 1050 500 1100 472C1130 464 1150 490 1136 516C1120 540 1090 552 1086 570C1094 610 1072 632 1040 642C900 672 640 640 480 612C390 600 300 600 306 545Z',LIP,LD,10,-8,-11)}
+<path d="M385 530C470 526 600 546 720 562C840 578 960 590 1070 540" fill="none" stroke="${O}" stroke-width="9" stroke-linecap="round"/>
+</g></svg>`;
+document.body.innerHTML=svg;
+</script>

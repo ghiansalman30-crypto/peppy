@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The Burn Barrel | PEPPY</title>
+<meta name="description" content="Every $PEPPY burn, each one a public transaction to the dead address.">
+<link rel="icon" href="assets/peppy.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titan+One&family=Caveat:wght@600&family=Nunito:wght@600;800&display=swap">
+<link rel="stylesheet" href="css/site.css?v=burn1">
+<link rel="stylesheet" href="css/burn.css?v=burn1">
+</head>
+<body class="burnp">
+<header class="bb"><a class="logo" href="/">PEPPY</a><span id="who"></span><button id="auth" class="pill line" type="button">Owner sign in</button></header>
+<main>
+  <section id="owner" class="box">
+    <small>THE BURN BARREL</small>
+    <details id="tokenBox" class="held" hidden><summary>Token contract</summary>
+      <form id="tokenForm" class="inl"><label for="tokenInput">Paste the token contract</label><div><input id="tokenInput" placeholder="0x…" autocomplete="off" spellcheck="false"><button class="pill hay" type="submit">Save</button></div></form>
+    </details>
+    <form id="usdForm"><label for="usdAmount">How many dollars?</label><div class="usd"><span>$</span><input id="usdAmount" inputmode="decimal" placeholder="50" autocomplete="off"></div><button id="usdBtn" class="fire" type="submit">Burn</button></form>
+    <p id="msg" class="m" role="status"></p>
+    <p id="pageMsg" class="m" role="status"></p>
+    <p class="note">Your wallet buys the token with ETH and sends it straight to the dead address. A burn can't be undone.</p>
+    <details id="heldBox" class="held" hidden><summary>Burn tokens you already hold</summary>
+      <form id="burnForm" class="inl"><label for="amount">Token amount</label><div><input id="amount" inputmode="decimal" placeholder="0" autocomplete="off"><button id="burnBtn" class="pill hay" type="submit">Burn</button></div></form>
+    </details>
+    <p id="ownerStats" class="note" hidden>Your balance: <b id="sBalance">–</b></p>
+  </section>
+  <section class="rec">
+    <small>BURN RECORD</small>
+    <h1>Check the chain.</h1>
+    <div class="nums"><div><b id="total">–</b><span id="totalLabel">Burned so far</span></div><div><b id="usd">–</b><span>Spent on burns</span></div><div><b id="count">–</b><span>Burns</span></div></div>
+    <p id="tokenLine" class="note"></p>
+    <button id="watch" class="pill line" type="button" hidden>Add token to wallet</button>
+    <ol id="burns"></ol>
+  </section>
+</main>
+<script src="js/burn.js?v=burn1"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html><meta charset="utf-8">
+<style>body{margin:0;background:#f4e9d4;display:grid;grid-template-columns:repeat(4,480px);width:1920px}svg{width:480px;height:520px}</style>
+<body><script>
+const O='#141009';
+const frog=(c,d,hi,acc='',eye='')=>`<svg viewBox="0 0 480 520">
+<defs><radialGradient id="b${c.slice(1)}" cx=".38" cy=".3" r=".8"><stop offset="0" stop-color="${hi}"/><stop offset=".55" stop-color="${c}"/><stop offset="1" stop-color="${d}"/></radialGradient></defs>
+<ellipse cx="240" cy="490" rx="170" ry="16" fill="#141009" opacity=".14"/>
+<!-- back legs -->
+<path d="M96 402c-52 8-74 52-44 78 26 22 96 12 134-6l-12-74z" fill="url(#b${c.slice(1)})" stroke="${O}" stroke-width="9" stroke-linejoin="round"/>
+<path d="M384 402c52 8 74 52 44 78-26 22-96 12-134-6l12-74z" fill="url(#b${c.slice(1)})" stroke="${O}" stroke-width="9" stroke-linejoin="round"/>
+<!-- body -->
+<path d="M240 214c-92 0-150 72-146 164 3 66 62 104 146 104s143-38 146-104c4-92-54-164-146-164z" fill="url(#b${c.slice(1)})" stroke="${O}" stroke-width="10"/>
+<path d="M240 300c-54 0-92 38-90 92 2 40 40 62 90 62s88-22 90-62c2-54-36-92-90-92z" fill="#f4e6b8" stroke="${O}" stroke-width="7"/>
+<path d="M168 340c10-20 26-30 46-34" stroke="#fff" stroke-width="12" stroke-linecap="round" fill="none" opacity=".7"/>
+<!-- arms -->
+<path d="M112 344c-22 30-26 66-8 84 14 14 38 8 44-10 4-14-4-22-4-40 0-14 8-26 8-26z" fill="url(#b${c.slice(1)})" stroke="${O}" stroke-width="9" stroke-linejoin="round"/>
+<path d="M368 344c22 30 26 66 8 84-14 14-38 8-44-10-4-14 4-22 4-40 0-14-8-26-8-26z" fill="url(#b${c.slice(1)})" stroke="${O}" stroke-width="9" stroke-linejoin="round"/>
+<!-- head -->
+<path d="M240 66c-20 0-34 8-46 18-16-22-46-34-76-24-36 12-52 50-42 86-24 18-38 46-34 76 8 58 96 92 198 92s190-34 198-92c4-30-10-58-34-76 10-36-6-74-42-86-30-10-60 2-76 24-12-10-26-18-46-18z" fill="url(#b${c.slice(1)})" stroke="${O}" stroke-width="10" stroke-linejoin="round"/>
+<path d="M92 118c6-24 26-40 50-40" stroke="#fff" stroke-width="13" stroke-linecap="round" fill="none" opacity=".65"/>
+<!-- eyes -->
+<g stroke="${O}" stroke-width="8">
+<ellipse cx="146" cy="142" rx="56" ry="52" fill="#fbf6e6"/><ellipse cx="334" cy="142" rx="56" ry="52" fill="#fbf6e6"/></g>
+<circle cx="158" cy="154" r="20" fill="${O}"/><circle cx="322" cy="154" r="20" fill="${O}"/>
+<circle cx="166" cy="146" r="7" fill="#fff"/><circle cx="330" cy="146" r="7" fill="#fff"/>
+${eye||`<path d="M88 134c10-42 44-58 62-58 28 0 48 18 56 56-40-16-80-16-118 2z" fill="${c}" stroke="${O}" stroke-width="8" stroke-linejoin="round"/><path d="M392 134c-10-42-44-58-62-58-28 0-48 18-56 56 40-16 80-16 118 2z" fill="${c}" stroke="${O}" stroke-width="8" stroke-linejoin="round"/>`}
+<!-- mouth -->
+<path d="M84 226c46 34 104 44 156 44s110-10 156-44c-14 44-72 74-156 74s-142-30-156-74z" fill="#c93a2c" stroke="${O}" stroke-width="9" stroke-linejoin="round"/>
+<path d="M92 232c50 26 98 34 148 34s98-8 148-34" stroke="${O}" stroke-width="6" fill="none"/>
+<path d="M170 288c40 8 96 6 134-4" stroke="#ff9b8a" stroke-width="7" stroke-linecap="round" fill="none"/>
+<circle cx="216" cy="196" r="4.5" fill="${O}"/><circle cx="262" cy="196" r="4.5" fill="${O}"/>
+${acc}</svg>`;
+const hat=`<path d="M60 98c40-22 90-30 180-30s140 8 180 30c26 14 12 34-16 28-54-12-108-18-164-18s-110 6-164 18c-28 6-42-14-16-28z" fill="#8a5a33" stroke="${O}" stroke-width="9"/><path d="M146 80c6-54 34-72 56-62 18 8 30 8 48 0 24-10 52 8 58 62-44 10-118 10-162 0z" fill="#a4703f" stroke="${O}" stroke-width="9"/><path d="M146 72c50 12 112 12 162 0" stroke="#3a2412" stroke-width="12" fill="none"/>`;
+const band=`<path d="M84 96c90-34 222-34 312 0l-6 30c-90-30-210-30-300 0z" fill="#f4e9d4" stroke="${O}" stroke-width="8"/><path d="M390 104c26 2 40 22 34 44-16-6-28-12-38-24z" fill="#f4e9d4" stroke="${O}" stroke-width="8"/>`;
+const rob=`<path d="M100 98c24-52 76-84 140-84 30 0 56 8 80 22l78 62c-96-22-204-22-298 0z" fill="#2f7d32" stroke="${O}" stroke-width="9" stroke-linejoin="round"/><path d="M320 40c30-28 64-40 104-40-14 26-44 56-78 66z" fill="#c93a2c" stroke="${O}" stroke-width="8"/>`;
+document.body.innerHTML=frog('#4fae3e','#2c7a2a','#9be36a')+frog('#c4582a','#8e3b1b','#f09a58',hat)+frog('#6a4bc4','#452f8e','#a48cf0',band)+frog('#7fd22e','#4c9a18','#c8f46a',rob);
+</script>

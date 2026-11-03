@@ -1,0 +1,37 @@
+<!doctype html><meta charset="utf-8">
+<style>body{margin:0;background:#f4e9d4;display:grid;grid-template-columns:repeat(3,640px);width:1920px}svg{width:640px;height:640px;display:block}</style>
+<body><script>
+const O='#141009';let n=0;
+const BODY="M214 300C214 176 318 96 448 104C584 112 676 214 670 346C666 438 622 508 562 556C650 596 742 590 806 520C826 498 860 508 862 540C866 640 760 742 616 750C500 756 392 716 322 636C256 618 214 560 214 300Z";
+const tad=(c,d,lip,lipD,acc='')=>{const id=++n;return `<svg viewBox="110 40 800 800">
+<defs><clipPath id="c${id}"><path d="${BODY}"/></clipPath></defs>
+<ellipse cx="530" cy="768" rx="300" ry="20" fill="${O}" opacity=".13"/>
+<path d="${BODY}" fill="${d}"/>
+<g clip-path="url(#c${id})"><path d="${BODY}" fill="${c}" transform="translate(-16 -20)"/>
+<path d="M300 650C400 720 540 738 640 716" stroke="${d}" stroke-width="10" fill="none" opacity=".5"/></g>
+<path d="${BODY}" fill="none" stroke="${O}" stroke-width="5.5" stroke-linejoin="round"/>
+<!-- highlights -->
+<path d="M470 130C560 142 622 204 638 286" stroke="#fff" stroke-width="20" stroke-linecap="round" fill="none" opacity=".72"/>
+<circle cx="646" cy="336" r="12" fill="#fff" opacity=".72"/>
+<path d="M702 646C744 630 776 602 800 566" stroke="#fff" stroke-width="13" stroke-linecap="round" fill="none" opacity=".6"/>
+<!-- far eye: closed in a wink -->
+<path d="M388 306C408 288 438 288 456 304" stroke="${O}" stroke-width="7" fill="none" stroke-linecap="round"/>
+<path d="M396 326C414 336 436 334 450 324" stroke="${O}" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".7"/>
+<!-- near eye -->
+<path d="M214 318C220 284 258 268 292 274C322 280 340 300 340 324C340 350 308 368 268 366C236 364 214 346 214 318Z" fill="${c}" stroke="${O}" stroke-width="5"/>
+<path d="M226 322C240 306 300 304 328 322C318 346 244 352 226 322Z" fill="#f7d3b4" stroke="${O}" stroke-width="4.5"/>
+<circle cx="262" cy="324" r="15" fill="${O}"/><circle cx="257" cy="319" r="4.5" fill="#fff"/>
+<path d="M222 322C242 302 304 300 332 322" stroke="${O}" stroke-width="8" fill="none" stroke-linecap="round"/>
+<path d="M232 372C256 384 296 384 322 372" stroke="${O}" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".7"/>
+<!-- lips: the same colour as the skin, pushed out past the face -->
+<path d="M214 398C192 404 176 420 178 440C180 456 196 466 222 466C286 468 360 458 418 416C428 408 416 392 402 398C346 424 276 416 214 398Z" fill="${lip}" stroke="${O}" stroke-width="5" stroke-linejoin="round"/>
+<path d="M186 470C196 502 240 516 292 512C352 508 402 480 428 432C410 442 358 466 300 472C256 476 216 476 186 470Z" fill="${lip}" stroke="${O}" stroke-width="5" stroke-linejoin="round"/>
+<path d="M180 452C232 474 340 466 424 414" stroke="${O}" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+<path d="M216 416C258 428 306 428 348 418" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" opacity=".55"/>
+<path d="M230 492C264 500 308 496 346 482" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" opacity=".5"/>
+<path d="M424 414C436 404 442 392 440 380" stroke="${O}" stroke-width="5" fill="none" stroke-linecap="round"/>
+${acc}</svg>`};
+const hat=`<path d="M216 216C300 186 470 180 610 204C646 212 640 240 604 238C470 224 340 232 232 262C200 270 186 228 216 216Z" fill="#7a4f2b" stroke="${O}" stroke-width="5.5"/><path d="M322 208C330 120 382 74 428 94C448 102 468 102 488 92C534 76 576 124 566 214C486 196 400 196 322 208Z" fill="#96663a" stroke="${O}" stroke-width="5.5"/><path d="M324 190C400 176 490 176 566 196" stroke="#3a2412" stroke-width="16" fill="none"/>`;
+const beanie=`<path d="M254 200C284 112 372 72 456 84C540 96 600 150 610 226C490 188 360 186 254 200Z" fill="#d6332b" stroke="${O}" stroke-width="5.5" stroke-linejoin="round"/><path d="M244 196C360 168 500 174 620 222L614 262C500 220 360 214 250 240Z" fill="#a3201b" stroke="${O}" stroke-width="5.5" stroke-linejoin="round"/>`;
+document.body.innerHTML=tad('#8cf000','#58b800','#74d90a','#4ea300')+tad('#f08a2c','#c45a12','#e87a1f','#a84c0e',hat)+tad('#35a7f0','#1272bb','#2596e0','#0f5f9c',beanie);
+</script>

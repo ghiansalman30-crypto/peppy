@@ -1,0 +1,48 @@
+<!doctype html><meta charset="utf-8">
+<style>body{margin:0;background:#f4e9d4;width:1200px}svg{width:1200px;height:1060px;display:block}</style>
+<body><script>
+const O='#141009',C='#6f9f58',D='#4f7d3f',LIP='#b86a42',LD='#8c4b2b',H='#3a2a1c';let n=0;
+const blob=(p,c,d,w=5,dx=-12,dy=-15)=>{const id=++n;return `<defs><clipPath id="k${id}"><path d="${p}"/></clipPath></defs><path d="${p}" fill="${d}"/><g clip-path="url(#k${id})"><path d="${p}" fill="${c}" transform="translate(${dx} ${dy})"/></g><path d="${p}" fill="none" stroke="${O}" stroke-width="${w}" stroke-linejoin="round"/>`};
+const gloss=(d,w=15,o=.6)=>`<path d="${d}" stroke="#fff" stroke-width="${w}" stroke-linecap="round" fill="none" opacity="${o}"/>`;
+const leg=(p,c,d,hx,hy)=>blob(p,c,d)+blob(`M${hx-46} ${hy}C${hx-20} ${hy+12} ${hx+30} ${hy+12} ${hx+50} ${hy}L${hx+64} ${hy+62}C${hx+30} ${hy+72} ${hx-30} ${hy+72} ${hx-56} ${hy+62}Z`,H,'#1f160e');
+const FARH='M300 610C270 690 280 750 262 800C252 840 262 900 258 960L330 960C330 890 340 840 352 800C372 730 396 680 410 620Z';
+const FARF='M640 620C640 700 650 760 636 820C630 860 640 910 636 966L708 966C708 900 712 860 722 820C738 750 736 690 730 620Z';
+const NEARH='M170 560C130 650 150 740 132 800C122 846 142 910 134 972L208 972C210 900 222 850 236 806C258 730 300 690 330 620Z';
+const NEARF='M744 640C730 700 760 770 744 830C736 870 752 920 744 978L820 978C822 910 828 868 838 830C854 760 836 700 800 640Z';
+const BODY='M660 300C610 390 566 436 500 448C420 464 340 470 270 436C200 404 130 450 116 530C104 600 140 650 210 660C320 676 480 660 610 664C700 668 790 650 840 590C880 540 900 480 880 400C860 340 740 270 660 300Z';
+const svg=`<svg viewBox="0 0 1200 1060">
+<ellipse cx="500" cy="1038" rx="470" ry="18" fill="${O}" opacity=".13"/>
+${blob('M170 450C90 440 40 500 44 600C48 690 30 780 64 860C84 910 120 930 150 920C126 860 130 780 150 700C170 620 190 540 230 480Z',LIP,LD)}
+${gloss('M92 520C80 600 76 700 96 820',11,.4)}
+${leg(FARH,D,'#3f6a31',296,950)}${leg(FARF,D,'#3f6a31',672,956)}
+${leg(NEARH,C,D,170,962)}${leg(NEARF,C,D,784,968)}
+${blob(BODY,C,D)}
+<path d="M196 640C230 600 290 590 330 620" stroke="${D}" stroke-width="7" fill="none" stroke-linecap="round"/>${gloss('M300 500C370 520 470 514 560 482',15)}<circle cx="178" cy="516" r="10" fill="#fff" opacity=".6"/>
+${gloss('M770 560C810 530 836 490 846 450',12,.5)}
+<!-- mane down the crest of the neck -->
+${blob('M600 150C520 170 468 230 452 300C420 306 398 340 410 374C380 392 372 432 398 456C372 478 378 520 416 530C470 520 540 480 590 430C640 380 680 300 690 200Z',LIP,LD)}
+<!-- ears --><g transform="translate(118 18) scale(.82)">
+${blob('M656 118C646 68 672 20 722 10C742 58 732 108 700 140Z',C,D)}
+${blob('M880 90C880 44 912 10 960 8C972 52 956 96 920 120Z',C,D)}</g>
+<g transform="translate(548 118) scale(.42)">
+<!-- head outline from the reference, closed above and below the crop -->
+${blob('M150 60C230 -40 460 -70 700 -50C860 -66 1040 -40 1120 40C1190 90 1200 150 1188 180C1140 240 1080 280 1030 310C1090 350 1120 420 1116 470C1150 500 1150 530 1110 570C1090 620 1040 680 960 712C760 770 420 760 240 690C120 640 20 540 0 420C-20 330 -10 170 60 90C90 70 120 62 150 60Z',C,D,10,-14,-18)}
+${gloss('M170 110C290 40 470 20 620 30',22,.5)}
+<g fill="none" stroke="${O}" stroke-width="9" stroke-linecap="round">
+<path d="M340 95C460 20 620 -6 770 30"/><path d="M305 135C440 50 610 30 775 65"/>
+<path d="M785 75C880 -2 1050 0 1150 90"/><path d="M782 60C870 -24 1060 -26 1170 70"/></g>
+<path d="M305 135C440 60 600 50 775 70C800 90 800 120 790 150C640 90 480 110 390 165C350 160 300 160 305 135Z" fill="${C}" stroke="${O}" stroke-width="9" stroke-linejoin="round"/>
+<path d="M782 92C900 40 1060 40 1186 150C1120 110 950 100 800 170C790 140 780 120 782 92Z" fill="${C}" stroke="${O}" stroke-width="9" stroke-linejoin="round"/>
+<path d="M390 165C470 100 620 70 720 92C770 104 796 130 800 150C780 210 680 236 560 238C490 240 430 210 390 165Z" fill="#fff" stroke="${O}" stroke-width="10" stroke-linejoin="round"/>
+<path d="M800 150C850 94 960 74 1050 86C1120 96 1168 130 1186 170C1110 216 990 224 880 216C830 210 800 186 800 150Z" fill="#fff" stroke="${O}" stroke-width="10" stroke-linejoin="round"/>
+<circle cx="578" cy="152" r="82" fill="#0a0806"/><circle cx="975" cy="150" r="80" fill="#0a0806"/>
+<circle cx="551" cy="104" r="13" fill="#fff"/><circle cx="600" cy="128" r="16" fill="#fff"/><circle cx="553" cy="148" r="9" fill="#fff"/>
+<circle cx="950" cy="100" r="12" fill="#fff"/><circle cx="998" cy="127" r="15" fill="#fff"/><circle cx="952" cy="146" r="8" fill="#fff"/>
+<g fill="none" stroke="${O}" stroke-width="9" stroke-linecap="round">
+<path d="M390 220C460 270 650 290 790 205"/><path d="M820 296C900 330 1080 320 1162 200"/>
+<path d="M548 350C610 326 660 310 706 286"/><path d="M820 298C850 318 880 332 910 342"/></g>
+${blob('M306 545C310 490 370 462 450 468C600 480 760 540 900 530C980 526 1050 500 1100 472C1130 464 1150 490 1136 516C1120 540 1090 552 1086 570C1094 610 1072 632 1040 642C900 672 640 640 480 612C390 600 300 600 306 545Z',LIP,LD,10,-8,-11)}
+<path d="M385 530C470 526 600 546 720 562C840 578 960 590 1070 540" fill="none" stroke="${O}" stroke-width="9" stroke-linecap="round"/>
+</g></svg>`;
+document.body.innerHTML=svg;
+</script>

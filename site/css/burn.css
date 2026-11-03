@@ -1,0 +1,32 @@
+body.burnp{background:var(--cream);color:var(--ink)}
+.bb{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px clamp(14px,3vw,32px)}
+.bb #who{margin-left:auto;font:800 13px var(--body)}
+.burnp main{max-width:720px;margin:0 auto;padding:10px 16px 60px}
+.box{padding:24px;background:#fbf1da;border:4px solid var(--ink);border-radius:14px;box-shadow:6px 6px 0 var(--ink)}
+#usdForm{display:grid;gap:12px;margin-top:12px}
+#usdForm[hidden]{display:none}
+#usdForm label{font:400 24px var(--title)}
+.usd{display:flex;align-items:center;gap:10px;padding:0 16px;background:#fff;border:3px solid var(--ink);border-radius:10px}
+.usd span{font:400 38px var(--title)}
+.usd input{flex:1;min-width:0;height:78px;border:0;outline:0;background:none;font:400 38px var(--title);color:var(--ink)}
+.fire{min-height:68px;font:400 28px var(--title);color:#fff;background:linear-gradient(90deg,#e8461f,#f5a300);border:3px solid var(--ink);border-radius:12px;box-shadow:0 5px 0 var(--ink);cursor:pointer}
+.fire:hover{filter:brightness(1.06)}
+.fire:active{transform:translateY(3px);box-shadow:0 2px 0 var(--ink)}
+.fire:disabled{opacity:.6;cursor:wait}
+.m{min-height:1.4em;margin:10px 0 0;font-weight:800;color:#b3402a;overflow-wrap:anywhere}
+.note{font-size:15px;color:#6b5d44;overflow-wrap:anywhere}
+.note a{color:var(--ink)}
+.held{margin-top:12px;font-size:15px}
+.held summary{cursor:pointer;font-weight:800}
+.inl{display:grid;gap:6px;margin-top:8px;font-weight:800}
+.inl div{display:flex;gap:8px}
+.inl input{flex:1;min-width:0;padding:10px 12px;font:600 16px var(--body);border:2px solid var(--ink);border-radius:8px;background:#fff;color:var(--ink)}
+.rec{margin-top:40px}
+.rec h1{margin:6px 0 14px;font:400 clamp(40px,8vw,70px) var(--title)}
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.nums div{padding:14px;background:#fbf1da;border:3px solid var(--ink);border-radius:10px}
+.nums b{display:block;font:400 26px var(--title);overflow-wrap:anywhere}
+.nums span{font-size:13px}
+#burns{list-style:none;margin:14px 0 0;padding:0}
+#burns li{display:grid;grid-template-columns:1fr auto auto;gap:14px;padding:12px 0;border-bottom:2px solid #d8cbb2;overflow-wrap:anywhere}
+@media (max-width:620px){.nums{grid-template-columns:1fr}#burns li{grid-template-columns:1fr;gap:2px}}

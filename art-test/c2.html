@@ -1,0 +1,58 @@
+<!doctype html><meta charset="utf-8">
+<style>body{margin:0;background:#f4e9d4;display:grid;grid-template-columns:repeat(3,640px);width:1920px;font:700 30px Arial;color:#141009;text-align:center}svg{width:640px;height:640px;display:block}</style>
+<body><script>
+const O='#141009';
+/* the face: heavy-lidded bulging eyes on top, a very wide mouth with thick lips. cx,cy sets the middle of the mouth */
+const face=(x,y,s,skin,dark)=>`<g transform="translate(${x} ${y}) scale(${s})">
+<!-- eye bulges -->
+<path d="M-118-74c-4-52 36-84 78-78 30 4 50 26 54 58z" fill="${skin}" stroke="${O}" stroke-width="9" stroke-linejoin="round"/>
+<path d="M8-92c6-44 44-66 82-58 36 8 58 40 50 80z" fill="${skin}" stroke="${O}" stroke-width="9" stroke-linejoin="round"/>
+<!-- whites -->
+<path d="M-112-74c6-30 34-48 66-46 28 2 52 14 62 30-6 26-30 40-66 40-30 0-54-8-62-24z" fill="#fbf6e6" stroke="${O}" stroke-width="7"/>
+<path d="M16-90c10-20 36-34 66-32 30 2 50 22 54 52-8 16-30 26-58 24-34-2-58-20-62-44z" fill="#fbf6e6" stroke="${O}" stroke-width="7"/>
+<!-- pupils look sideways -->
+<ellipse cx="-16" cy="-82" rx="15" ry="19" fill="${O}"/><ellipse cx="108" cy="-80" rx="15" ry="19" fill="${O}"/>
+<circle cx="-11" cy="-90" r="5" fill="#fff"/><circle cx="113" cy="-88" r="5" fill="#fff"/>
+<!-- heavy lids -->
+<path d="M-116-76c8-34 38-52 70-50 30 2 52 16 64 34-44-12-92-10-134 16z" fill="${skin}" stroke="${O}" stroke-width="8" stroke-linejoin="round"/>
+<path d="M14-92c12-22 38-36 68-34 30 2 52 24 56 58-40-24-84-32-124-24z" fill="${skin}" stroke="${O}" stroke-width="8" stroke-linejoin="round"/>
+<!-- bags -->
+<path d="M-98-40c20 12 52 14 84 4" stroke="${dark}" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M34-36c28 12 62 12 92 0" stroke="${dark}" stroke-width="6" fill="none" stroke-linecap="round"/>
+<!-- lips -->
+<path d="M-160 8c54 18 112 20 162 12 58-8 110-22 158-44 8 40-30 84-92 106-60 22-128 18-178-10-32-18-48-40-50-64z" fill="#c9433a" stroke="${O}" stroke-width="10" stroke-linejoin="round"/>
+<path d="M-160 8c50 34 108 44 164 36 62-8 116-34 156-68" fill="none" stroke="${O}" stroke-width="9" stroke-linecap="round"/>
+<path d="M-92 66c40 20 96 22 146 6" stroke="#f08c7c" stroke-width="10" fill="none" stroke-linecap="round"/>
+<circle cx="24" cy="-14" r="4.5" fill="${O}"/><circle cx="56" cy="-20" r="4.5" fill="${O}"/>
+</g>`;
+const crab=()=>`<svg viewBox="0 0 640 640">
+<!-- shell -->
+<path d="M300 120c130-34 268 70 262 214-4 96-74 170-182 176-60-30-120-120-120-220 0-70 16-130 40-170z" fill="#f5a300" stroke="${O}" stroke-width="11"/>
+<path d="M330 150c80-10 180 60 180 170 0 70-44 124-108 136-46-30-74-96-74-170 0-60 2-100 2-136z" fill="#ffd166" stroke="${O}" stroke-width="8"/>
+<path d="M366 210c58 0 104 46 104 104 0 44-30 80-72 88-26-22-40-62-40-104 0-34 2-62 8-88z" fill="#f5a300" stroke="${O}" stroke-width="8"/>
+<path d="M398 268c30 0 50 24 50 50 0 22-14 40-34 46-12-14-18-34-18-54 0-16 0-30 2-42z" fill="#ffd166" stroke="${O}" stroke-width="7"/>
+<!-- legs -->
+<path d="M170 500c-30 20-48 44-50 74M230 516c-16 24-24 46-22 70M300 516c-4 24-2 46 8 70" stroke="${O}" stroke-width="30" stroke-linecap="round" fill="none"/>
+<path d="M170 500c-30 20-48 44-50 74M230 516c-16 24-24 46-22 70M300 516c-4 24-2 46 8 70" stroke="#d9553f" stroke-width="15" stroke-linecap="round" fill="none"/>
+<!-- body -->
+<path d="M80 340c-14-110 80-180 180-170 88 8 142 86 134 176-6 78-74 170-180 170-80 0-124-90-134-176z" fill="#e4603f" stroke="${O}" stroke-width="11"/>
+${face(214,330,1.02,'#e4603f','#a93a22')}
+<!-- claw -->
+<path d="M96 462c-44 4-70 42-58 80 26 4 44-10 50-26 8 18 26 26 46 22 20-34 2-78-38-76z" fill="#e4603f" stroke="${O}" stroke-width="10" stroke-linejoin="round"/>
+</svg>`;
+const tad=()=>`<svg viewBox="0 0 640 640">
+<path d="M340 470c70 60 150 60 222 8 10 44-30 90-90 104-60 14-132-4-176-58z" fill="#4e9f3d" stroke="${O}" stroke-width="11" stroke-linejoin="round"/>
+<path d="M112 330c0-126 96-204 206-204s206 78 206 200c0 130-96 214-206 214S112 456 112 330z" fill="#67b84a" stroke="${O}" stroke-width="11"/>
+<path d="M170 240c20-40 52-62 96-70" stroke="#b8ec8c" stroke-width="16" stroke-linecap="round" fill="none" opacity=".8"/>
+${face(310,340,1.16,'#67b84a','#2f7d2e')}
+<path d="M250 500c30 24 100 28 150 4" stroke="#2f7d2e" stroke-width="7" fill="none" stroke-linecap="round"/>
+</svg>`;
+const snail=()=>`<svg viewBox="0 0 640 640">
+<circle cx="404" cy="300" r="178" fill="#7a5ce0" stroke="${O}" stroke-width="11"/>
+<path d="M404 300c30-34 96-10 88 50-8 62-100 90-156 44-58-48-44-154 40-180 90-28 190 44 170 150" fill="none" stroke="${O}" stroke-width="11" stroke-linecap="round"/>
+<path d="M60 556c70 24 330 26 480 2 30-6 30-40 0-44-90-14-200-8-250-34L300 300H110c-60 60-60 200-50 256z" fill="#7bc24d" stroke="${O}" stroke-width="11" stroke-linejoin="round"/>
+${face(196,300,.98,'#7bc24d','#3b8c2e')}
+</svg>`;
+const cell=(s,t)=>`<div>${s}<div style="padding:0 0 18px">${t}</div></div>`;
+document.body.innerHTML=cell(crab(),'1. Kelomang')+cell(tad(),'2. Kecebong')+cell(snail(),'3. Siput');
+</script>
